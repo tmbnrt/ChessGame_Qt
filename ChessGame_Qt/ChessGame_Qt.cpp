@@ -4,6 +4,7 @@
 
 ChessGame_Qt::ChessGame_Qt(QWidget *parent) : QMainWindow(parent)
 {
+    setFixedSize(1000, 500);
     createMenus();
 
     centralWidget = new QWidget(this);

@@ -24,6 +24,8 @@ private:
 	Ui::BoardView*								ui;
 	MenuView*									menuView;
 
+	int											gridSize = 480;
 	void										setupBoard();
+	void										setFigures();
 };
 
