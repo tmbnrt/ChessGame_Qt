@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ChessGame_Qt", "ChessGame_Qt\ChessGame_Qt.vcxproj", "{1E2E24A6-E97C-49C6-A2A9-FB2A9362A37E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E2E24A6-E97C-49C6-A2A9-FB2A9362A37E}.Debug|x64.ActiveCfg = Debug|x64
+		{1E2E24A6-E97C-49C6-A2A9-FB2A9362A37E}.Debug|x64.Build.0 = Debug|x64
+		{1E2E24A6-E97C-49C6-A2A9-FB2A9362A37E}.Release|x64.ActiveCfg = Release|x64
+		{1E2E24A6-E97C-49C6-A2A9-FB2A9362A37E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE1A7343-6C7D-467D-8B72-028CA6A58C00}
+	EndGlobalSection
+EndGlobal
