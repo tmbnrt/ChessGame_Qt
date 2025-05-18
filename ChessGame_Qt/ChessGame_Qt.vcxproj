@@ -94,6 +94,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="logic\Action.cpp" />
+    <ClCompile Include="logic\Bishop.cpp" />
+    <ClCompile Include="logic\Character.cpp" />
+    <ClCompile Include="logic\DangerZone.cpp" />
+    <ClCompile Include="logic\Game.cpp" />
+    <ClCompile Include="logic\King.cpp" />
+    <ClCompile Include="logic\Knight.cpp" />
+    <ClCompile Include="logic\Pawn.cpp" />
+    <ClCompile Include="logic\Player.cpp" />
+    <ClCompile Include="logic\PlayerMoves.cpp" />
+    <ClCompile Include="logic\Queen.cpp" />
+    <ClCompile Include="logic\Rook.cpp" />
+    <ClCompile Include="logic\Test.cpp" />
     <ClCompile Include="MenuView.cpp" />
     <QtRcc Include="ChessGame_Qt.qrc" />
     <QtUic Include="BoardView.ui" />
@@ -109,6 +122,21 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MenuView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="logic\Action.h" />
+    <ClInclude Include="logic\Bishop.h" />
+    <ClInclude Include="logic\Character.h" />
+    <ClInclude Include="logic\DangerZone.h" />
+    <ClInclude Include="logic\Game.h" />
+    <ClInclude Include="logic\King.h" />
+    <ClInclude Include="logic\Knight.h" />
+    <ClInclude Include="logic\Pawn.h" />
+    <ClInclude Include="logic\Player.h" />
+    <ClInclude Include="logic\PlayerMoves.h" />
+    <ClInclude Include="logic\Queen.h" />
+    <ClInclude Include="logic\Rook.h" />
+    <ClInclude Include="logic\Test.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

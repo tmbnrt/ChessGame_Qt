@@ -1,6 +1,4 @@
 #include "ChessGame_Qt.h"
-#include "MenuView.h"
-#include "BoardView.h"
 
 ChessGame_Qt::ChessGame_Qt(QWidget *parent) : QMainWindow(parent)
 {
@@ -33,6 +31,10 @@ ChessGame_Qt::ChessGame_Qt(QWidget *parent) : QMainWindow(parent)
 void ChessGame_Qt::switchToBoardView()
 {
     stackedWidget->setCurrentWidget(boardView);
+
+    // Start game logic
+    Game game = Game(boardView);
+    game.start();
 }
 
 void ChessGame_Qt::switchToMenuView()

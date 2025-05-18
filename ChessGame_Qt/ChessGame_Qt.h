@@ -4,6 +4,7 @@
 #include "ui_ChessGame_Qt.h"
 #include "MenuView.h"
 #include "BoardView.h"
+#include "Logic/Game.h"
 #include <QStackedWidget>
 #include <QVBoxLayout>
 #include <QMenuBar>
