@@ -18,6 +18,10 @@ void BoardView::handleButtonClick(int row, int col) {
 	pressedButton = { row, col };
 }
 
+void BoardView::endOfGame(bool win, int n_moves) {
+	//...
+}
+
 void BoardView::waitForUserInput() {
 	QGridLayout* layout = findChild<QGridLayout*>("gridLayout");
 	QEventLoop loop;
@@ -135,7 +139,7 @@ void BoardView::onBackButtonClicked() {
 	this->close();
 }
 
-void BoardView::update(const std::vector<std::vector<Character*>> board) {	
+void BoardView::update(const std::vector<std::vector<Character*>> board) {
 	std::vector<std::vector<char>> charBoard(8, std::vector<char>(8));
 	for (int i = 0; i < board.size(); i++) {
 		for (int j = 0; j < board[0].size(); j++) {
@@ -153,6 +157,8 @@ void BoardView::update(const std::vector<std::vector<Character*>> board) {
 			for (int j = 0; j < board[0].size(); ++j) {
 				QPushButton* button = qobject_cast<QPushButton*>(layout->itemAtPosition(i, j)->widget());
 				if (button) {
+					QString color = ((i + j) % 2 == 0) ? "white" : "gray";
+					button->setStyleSheet("background-color: " + color + "; border 1px solid black;");
 					QPixmap pixmap(QString::fromStdString(designationFigure[charBoard[i][j]]));
 					QIcon icon(pixmap);
 					button->setIcon(icon);
@@ -170,7 +176,9 @@ void BoardView::highlightFields(std::vector<std::vector<int>> allowed) {
 		for (int col = 0; col < 8; ++col) {
 			QPushButton* button = qobject_cast<QPushButton*>(layout->itemAtPosition(row, col)->widget());
 			if (button) {
-				button->setStyleSheet("border: 1px solid black;");
+				QString color = ((row + col) % 2 == 0) ? "white" : "gray";
+				button->setStyleSheet("background-color: " + color + "; border 1px solid black;");
+				//button->setStyleSheet("border: 1px solid black;");
 			}
 		}
 	}
@@ -179,7 +187,9 @@ void BoardView::highlightFields(std::vector<std::vector<int>> allowed) {
 	for (int i = 0; i < allowed.size(); ++i) {
 		QPushButton* button = qobject_cast<QPushButton*>(layout->itemAtPosition(allowed[i][0], allowed[i][1])->widget());
 		if (button) {
-			button->setStyleSheet("border: 2px solid red;");
+			QString color = ((allowed[i][0] + allowed[i][1]) % 2 == 0) ? "white" : "gray";
+			button->setStyleSheet("background-color: " + color + "; border: 2px solid red;");
+			//button->setStyleSheet("border: 2px solid red;");
 		}
 	}
 }

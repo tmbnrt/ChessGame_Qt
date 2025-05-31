@@ -91,6 +91,9 @@
     <ClCompile Include="logic\Test.cpp">
       <Filter>Source Files\Logic</Filter>
     </ClCompile>
+    <ClCompile Include="EndOfGameView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MenuView.ui">
@@ -99,12 +102,18 @@
     <QtUic Include="BoardView.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="EndOfGameView.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="BoardView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="MenuView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="EndOfGameView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

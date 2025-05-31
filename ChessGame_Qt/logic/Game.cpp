@@ -31,6 +31,10 @@ int Game::start() {
     // Initialize AI Prediction 
     //Prediction prediction = Prediction();
 
+    // Set timer and move counter
+    auto start = std::chrono::high_resolution_clock::now();
+    int n_moves = 0;
+
     // Main loop
     bool random_enemy = true;
     bool predict = false;
@@ -83,7 +87,8 @@ int Game::start() {
 
         // Move figure on board
         board = board[boardView->move_from[0]][boardView->move_from[1]]->move(board, std::vector<int> { boardView->move_to[0], boardView->move_to[1] }, false);
-        
+        n_moves++;
+
         // Check if pawn has reached oppisite side
         if (act_player == 1 && board[boardView->move_to[0]][boardView->move_to[1]]->getDesignation() == 'B' && boardView->move_to[0] == 0)
             board = white.getQueen(board, boardView->move_to);
@@ -96,10 +101,38 @@ int Game::start() {
         else
             act_player = 1;
     }
-    if (winner > 0)
+
+    // Stop timer and calculate time
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+
+
+    // End of the game
+    if (winner > 0) {
         std::cout << "  --> Winner is Player " + act_player << std::endl;
-    else
+
+        if (act_player == 1) {
+            EndOfGameView* endOfGameView = new EndOfGameView();
+            endOfGameView->setInfo(n_moves, elapsed.count());
+            endOfGameView->show();
+            boardView->close();
+        }
+        else {
+            EndOfGameView* endOfGameView = new EndOfGameView();
+            endOfGameView->setInfo(-1, elapsed.count());
+            endOfGameView->show();
+            boardView->close();
+        }        
+    }
+    else {
         std::cout << "  --> Stealmate!" << std::endl;
+
+        EndOfGameView* endOfGameView = new EndOfGameView();
+        endOfGameView->setInfo(0, elapsed.count());
+        endOfGameView->show();
+        boardView->close();
+    }
+        
 
     return 0;
 }

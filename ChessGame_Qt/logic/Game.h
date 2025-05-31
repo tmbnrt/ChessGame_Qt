@@ -5,6 +5,7 @@
 // ===========================================================================
 #include "Player.h"
 #include "BoardView.h"
+#include "EndOfGameView.h"
 #include "Character.h"
 #include "Action.h"
 #include "Test.h"
@@ -12,6 +13,8 @@
 #include <vector>
 #include <iostream>
 #include <string>
+#include <chrono>
+#include <thread>
 
 class Game
 {
@@ -32,5 +35,6 @@ private:
 	//void										render(std::vector<std::vector<Character*>> board);
 
 	BoardView*									boardView;
+	EndOfGameView*								endOfGameView;
 };
 

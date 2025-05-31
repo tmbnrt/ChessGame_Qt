@@ -25,8 +25,9 @@ public:
 	// Game logic interaction
 	void										update(const std::vector<std::vector<Character*>> board);
 	void										getMove(PlayerMoves& playerMoves);
+	void										endOfGame(bool win, int n_moves);
 	std::vector<int>							move_from;
-	std::vector<int>							move_to;
+	std::vector<int>							move_to;	
 
 private slots:
 	void										onBackButtonClicked();
@@ -46,4 +47,3 @@ private:
 	void										waitForUserInput();
 	void										highlightFields(std::vector<std::vector<int>> possible);
 };
-

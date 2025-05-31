@@ -94,6 +94,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="EndOfGameView.cpp" />
     <ClCompile Include="logic\Action.cpp" />
     <ClCompile Include="logic\Bishop.cpp" />
     <ClCompile Include="logic\Character.cpp" />
@@ -115,6 +116,7 @@
     <ClCompile Include="BoardView.cpp" />
     <ClCompile Include="ChessGame_Qt.cpp" />
     <ClCompile Include="main.cpp" />
+    <QtUic Include="EndOfGameView.ui" />
     <QtUic Include="MenuView.ui" />
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +126,7 @@
     <QtMoc Include="MenuView.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="EndOfGameView.h" />
     <ClInclude Include="logic\Action.h" />
     <ClInclude Include="logic\Bishop.h" />
     <ClInclude Include="logic\Character.h" />
