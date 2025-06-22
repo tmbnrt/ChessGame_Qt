@@ -110,23 +110,26 @@ void BoardView::setupBoard() {
 	if (layout) {
 		layout->setContentsMargins(0, 0, 0, 0);				// avoid unnecessary bounds
 		layout->setSpacing(0);								// avoid distance between buttons
-		//for (int i = 0; i < 8; ++i) {
-		//	layout->setColumnStretch(i, 0);					// deactivate dynamic fit
-		//	layout->setRowStretch(i, 0);
-		//	layout->setColumnMinimumWidth(i, fieldSize);	// field width to defined value
-		//	layout->setRowMinimumHeight(i, fieldSize);		// field height to defined value
-		//}
 
 		for (int row = 0; row < 8; ++row) {
 			for (int col = 0; col < 8; ++col) {
 				QPushButton* button = qobject_cast<QPushButton*>(layout->itemAtPosition(row, col)->widget());
 				if (button) {
-					button->setFixedSize(fieldSize, fieldSize);
-					button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+					//button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+					button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+					//button->setFixedSize(fieldSize - 5, fieldSize - 5);
+					//button->setMinimumSize(10, 10);
 					QString color = ((row + col) % 2 == 0) ? "white" : "gray";
 					button->setStyleSheet("background-color: " + color + "; border 1px solid black;");					
 				}
 			}
+		}
+
+		for (int i = 0; i < 8; ++i) {
+			layout->setRowStretch(i, 0);
+			layout->setColumnMinimumWidth(i, fieldSize);	// field width to defined value
+			layout->setColumnStretch(i, 0);					// deactivate dynamic fit
+			layout->setRowMinimumHeight(i, fieldSize);		// field height to defined value
 		}
 	}
 
@@ -154,15 +157,16 @@ void BoardView::update(const std::vector<std::vector<Character*>> board) {
 	QGridLayout* layout = findChild<QGridLayout*>("gridLayout");
 	if (layout) {
 		for (int i = 0; i < board.size(); ++i) {
-			for (int j = 0; j < board[0].size(); ++j) {
+			for (int j = 0; j < board[0].size(); ++j) {				
 				QPushButton* button = qobject_cast<QPushButton*>(layout->itemAtPosition(i, j)->widget());
 				if (button) {
 					QString color = ((i + j) % 2 == 0) ? "white" : "gray";
 					button->setStyleSheet("background-color: " + color + "; border 1px solid black;");
+					//button->setFixedSize(fieldSize - 5, fieldSize - 5);
 					QPixmap pixmap(QString::fromStdString(designationFigure[charBoard[i][j]]));
 					QIcon icon(pixmap);
 					button->setIcon(icon);
-					button->setIconSize(QSize(fieldSize, fieldSize));
+					button->setIconSize(QSize(fieldSize - 15, fieldSize - 15));
 				}
 			}
 		}
