@@ -124,9 +124,9 @@ void BoardView::setupBoard() {
 
 		for (int i = 0; i < 8; ++i) {
 			layout->setRowStretch(i, 0);
-			layout->setColumnMinimumWidth(i, fieldSize);	// field width to defined value
-			layout->setColumnStretch(i, 0);					// deactivate dynamic fit
-			layout->setRowMinimumHeight(i, fieldSize);		// field height to defined value
+			layout->setColumnMinimumWidth(i, fieldSize);
+			layout->setColumnStretch(i, 0);
+			layout->setRowMinimumHeight(i, fieldSize);
 		}
 	}
 
