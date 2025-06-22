@@ -42,6 +42,12 @@ A long-term goal is the integration of **machine learning algorithms** in Python
 
 ---
 
+### 🧭 Screenshots
+![Screenshot of gameplay view](media/gameplay.png)
+*A screenshot of the gameplay showing the opportunity for the special castling move*
+
+---
+
 ## 🎨 Graphics Attribution
 
 This project uses open-source chess piece graphics from the
