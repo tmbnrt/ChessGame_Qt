@@ -207,7 +207,7 @@ void BoardView::getMove(PlayerMoves& playerMoves) {
 		int row = pressedButton[0];
 		int col = pressedButton[1];
 
-		// CHECK IF ALLOWED
+		// Check if move is allowed
 		if (selActPosition && playerMoves.checkAllowedActual(std::vector<int>{ row, col })) {
 			actual = std::vector<int>{ row, col };
 			selActPosition = false;
