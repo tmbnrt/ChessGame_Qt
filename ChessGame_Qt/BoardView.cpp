@@ -115,10 +115,7 @@ void BoardView::setupBoard() {
 			for (int col = 0; col < 8; ++col) {
 				QPushButton* button = qobject_cast<QPushButton*>(layout->itemAtPosition(row, col)->widget());
 				if (button) {
-					//button->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
 					button->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-					//button->setFixedSize(fieldSize - 5, fieldSize - 5);
-					//button->setMinimumSize(10, 10);
 					QString color = ((row + col) % 2 == 0) ? "white" : "gray";
 					button->setStyleSheet("background-color: " + color + "; border 1px solid black;");					
 				}
@@ -162,7 +159,6 @@ void BoardView::update(const std::vector<std::vector<Character*>> board) {
 				if (button) {
 					QString color = ((i + j) % 2 == 0) ? "white" : "gray";
 					button->setStyleSheet("background-color: " + color + "; border 1px solid black;");
-					//button->setFixedSize(fieldSize - 5, fieldSize - 5);
 					QPixmap pixmap(QString::fromStdString(designationFigure[charBoard[i][j]]));
 					QIcon icon(pixmap);
 					button->setIcon(icon);
@@ -182,7 +178,6 @@ void BoardView::highlightFields(std::vector<std::vector<int>> allowed) {
 			if (button) {
 				QString color = ((row + col) % 2 == 0) ? "white" : "gray";
 				button->setStyleSheet("background-color: " + color + "; border 1px solid black;");
-				//button->setStyleSheet("border: 1px solid black;");
 			}
 		}
 	}
@@ -193,7 +188,6 @@ void BoardView::highlightFields(std::vector<std::vector<int>> allowed) {
 		if (button) {
 			QString color = ((allowed[i][0] + allowed[i][1]) % 2 == 0) ? "white" : "gray";
 			button->setStyleSheet("background-color: " + color + "; border: 2px solid red;");
-			//button->setStyleSheet("border: 2px solid red;");
 		}
 	}
 }
@@ -242,8 +236,6 @@ void BoardView::getMove(PlayerMoves& playerMoves) {
 				this->move_to = target;
 			}
 			else {
-				//drawBoard();
-				//drawImages(act_board);
 				selActPosition = true;
 				continue;
 			}
