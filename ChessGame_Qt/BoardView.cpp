@@ -201,7 +201,6 @@ void BoardView::getMove(PlayerMoves& playerMoves) {
 
 	// EDIT --> This is from the SFML framework !
 	while (!correct_input) {
-		// Check input
 		// Get pressed button
 		waitForUserInput();
 
@@ -221,9 +220,6 @@ void BoardView::getMove(PlayerMoves& playerMoves) {
 			if ((target[0] == actual[0] && target[1] == actual[1]) || playerMoves.checkAllowedActual(std::vector<int>{ target[0], target[1] })) {
 				// unmark board
 				std::vector<std::vector<int>> empty;
-				//window.clear();
-				//drawBoard();
-				//drawImages(act_board);
 				highlightFields(empty);
 				selActPosition = true;
 				continue;
